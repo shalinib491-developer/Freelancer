@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f4ef">
+  <title>Scopewise — Scope tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#overview" aria-label="Scopewise home"><span class="brand-mark">S</span><span>scopewise<span class="brand-period">.</span></span></a>
+      <div class="workspace-label">WORKSPACE</div>
+      <button class="project-switcher" id="projectSwitcher"><span class="project-avatar">N</span><span class="switcher-copy"><strong>Northstar Studio</strong><small>Website redesign</small></span><span class="chevron">⌄</span></button>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a class="nav-link active" href="#overview" data-view="overview"><span class="nav-icon">▦</span>Overview</a>
+        <a class="nav-link" href="#scope" data-view="scope"><span class="nav-icon">☷</span>Agreed scope</a>
+        <a class="nav-link" href="#requests" data-view="requests"><span class="nav-icon">↗</span>Requests <span class="nav-count" id="navCount">2</span></a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="privacy-note"><span class="privacy-icon">⌑</span><div><strong>Your data stays yours</strong><p>Nothing is sent to your client automatically.</p></div></div>
+        <button class="profile-button"><span class="profile-avatar">SB</span><span><strong>Shalini B</strong><small>Freelancer</small></span><span class="more">···</span></button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar"><div class="breadcrumb">Projects <span>/</span> <strong>Northstar Studio</strong></div><div class="top-actions"><span class="demo-chip"><span></span> DEMO DATA</span><button class="icon-button" aria-label="Help">?</button></div></header>
+
+      <section class="view active" id="overviewView">
+        <div class="page-heading"><div><div class="eyebrow">PROJECT OVERVIEW <span class="status-dot"></span> IN PROGRESS</div><h1>Keep the work<br class="mobile-break"> in scope.</h1><p class="subtitle">A clear record of what was agreed, what changed, and what needs your decision.</p></div><button class="button button-dark" data-open-request><span>＋</span> Log a request</button></div>
+        <div class="project-banner"><div class="banner-main"><div class="banner-icon">N</div><div><div class="banner-eyebrow">ACTIVE PROJECT <span>·</span> FIXED PRICE</div><h2>Northstar Studio <span class="banner-edit">↗</span></h2><p>Website redesign <span>•</span> Started 12 Aug 2026</p></div></div><div class="banner-meta"><div><span>HOURLY RATE</span><strong id="hourlyRateDisplay">₹1,500<span>/hr</span></strong></div><div><span>CLIENT</span><strong>Northstar team</strong></div></div><button class="banner-menu" aria-label="Project options">···</button></div>
+
+        <div class="stats-grid">
+          <article class="stat-card"><div class="stat-top"><span>AGREED SCOPE</span><span class="stat-icon mint">☷</span></div><strong id="scopeStat">6</strong><p>items in your brief</p><div class="stat-foot"><span class="tiny-dot green"></span>Saved and ready to compare</div></article>
+          <article class="stat-card"><div class="stat-top"><span>REQUESTS LOGGED</span><span class="stat-icon lilac">↗</span></div><strong id="requestStat">3</strong><p>client requests captured</p><div class="stat-foot"><span class="tiny-dot purple"></span><span id="openRequestFoot">2 need your review</span></div></article>
+          <article class="stat-card"><div class="stat-top"><span>ESTIMATED EXTRA</span><span class="stat-icon peach">◷</span></div><strong id="hoursStat">4.5<span class="stat-unit"> hrs</span></strong><p id="costStat">₹6,750 potential value</p><div class="stat-foot"><span class="tiny-dot amber"></span>Estimate only · not yet agreed</div></article>
+        </div>
+
+        <div class="content-grid">
+          <section class="panel request-panel"><div class="panel-heading"><div><div class="eyebrow">NEEDS YOUR ATTENTION</div><h3>Recent requests</h3></div><button class="text-button" data-view-link="requests">View all <span>→</span></button></div><div id="recentRequests" class="request-list"></div><button class="add-inline" data-open-request><span>＋</span> Log another request</button></section>
+          <aside class="right-column"><section class="panel progress-panel"><div class="progress-heading"><div><div class="eyebrow">PROJECT HEALTH</div><h3>Scope clarity</h3></div><span class="progress-score">Good</span></div><div class="progress-track"><span style="width:76%"></span></div><div class="progress-caption"><span>4 of 6 items clearly defined</span><strong>76%</strong></div><div class="progress-divider"></div><div class="mini-check"><span class="check-icon">✓</span><span>Agreed scope is saved</span><span class="check-state">DONE</span></div><div class="mini-check"><span class="check-icon">✓</span><span>Client requests are tracked</span><span class="check-state">DONE</span></div><div class="mini-check pending"><span class="check-icon">•</span><span>Review 2 flagged requests</span><span class="check-state">NEXT</span></div></section>
+          <section class="quote-card"><div class="quote-mark">“</div><p>Clarity now makes the next conversation easier.</p><span>YOUR PROJECT, YOUR CALL</span><div class="quote-decoration"></div></section></aside>
+        </div>
+        <footer class="page-footer"><span>Scopewise <span>·</span> helping you keep work fair</span><span><span class="lock">⌑</span> Private by design</span></footer>
+      </section>
+
+      <section class="view" id="scopeView">
+        <div class="page-heading"><div><div class="eyebrow">THE ORIGINAL AGREEMENT <span class="status-dot"></span> SAVED</div><h1>Agreed scope.</h1><p class="subtitle">The reference point for every request. Keep it concise and clear.</p></div><button class="button button-dark" id="addScopeButton"><span>＋</span> Add scope item</button></div>
+        <div class="scope-intro"><div class="scope-intro-mark">✳</div><div><strong>Start with what both sides agreed.</strong><p>These are the deliverables from your project brief. A request can match an item or be marked as a possible change.</p></div><button id="editRateButton" class="rate-button">Hourly rate <strong id="scopeRateDisplay">₹1,500/hr</strong> <span>✎</span></button></div>
+        <div class="scope-list-wrap"><div class="scope-list-header"><span>DELIVERABLE</span><span>DETAILS / ACCEPTANCE</span><span>REQUESTS</span><span></span></div><div id="scopeList" class="scope-list"></div><button class="scope-add-row" id="addScopeRow"><span>＋</span> Add another deliverable</button></div>
+        <div class="scope-note"><span>ⓘ</span><p>Use language from the accepted proposal where possible. This tracker helps you document changes; it does not provide legal advice.</p></div>
+        <footer class="page-footer"><span>Scopewise <span>·</span> helping you keep work fair</span><span><span class="lock">⌑</span> Private by design</span></footer>
+      </section>
+
+      <section class="view" id="requestsView">
+        <div class="page-heading"><div><div class="eyebrow">REQUEST LOG <span class="status-dot"></span> FREELANCER CONTROLLED</div><h1>Every change,<br>in one place.</h1><p class="subtitle">Compare requests with the agreement, then decide what happens next.</p></div><button class="button button-dark" data-open-request><span>＋</span> Log a request</button></div>
+        <div class="request-toolbar"><div class="filter-tabs" role="tablist"><button class="filter-tab selected" data-filter="all">All requests <span id="allFilterCount">3</span></button><button class="filter-tab" data-filter="review">Needs review <span id="reviewFilterCount">2</span></button><button class="filter-tab" data-filter="resolved">Resolved <span id="resolvedFilterCount">1</span></button></div><span class="request-count-label" id="requestCountLabel">3 requests</span></div>
+        <div id="allRequests" class="all-requests"></div>
+        <footer class="page-footer"><span>Scopewise <span>·</span> helping you keep work fair</span><span><span class="lock">⌑</span> Private by design</span></footer>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="requestDialog" class="modal">
+    <form method="dialog" id="requestForm"><div class="modal-top"><div><div class="eyebrow">REQUEST LOG</div><h2>Capture a client request</h2></div><button class="close-button" value="cancel" aria-label="Close">×</button></div><p class="modal-intro">A few details help you compare the ask with your original agreement. You can edit everything later.</p>
+      <label class="field-label" for="requestTitle">What did the client ask for?</label><input id="requestTitle" name="title" required maxlength="120" placeholder="e.g. Add a member login area">
+      <label class="field-label" for="requestDetails">Request details <span>OPTIONAL</span></label><textarea id="requestDetails" name="details" rows="3" maxlength="500" placeholder="Add a short note or a relevant excerpt. Avoid sensitive client information."></textarea>
+      <div class="form-row"><div><label class="field-label" for="matchScope">Closest scope item</label><select id="matchScope" name="scopeId"></select></div><div><label class="field-label" for="hoursEstimate">Extra hours <span>ESTIMATE</span></label><input id="hoursEstimate" name="hours" type="number" min="0" step="0.5" placeholder="e.g. 2"></div></div>
+      <div class="privacy-inline"><span>⌑</span><p>Use a short excerpt only. Nothing is uploaded or sent to your client.</p></div><div class="modal-actions"><button class="button button-quiet" value="cancel">Cancel</button><button class="button button-dark" id="saveRequestButton" value="default">Save request <span>→</span></button></div>
+    </form>
+  </dialog>
+
+  <dialog id="scopeDialog" class="modal">
+    <form method="dialog" id="scopeForm"><div class="modal-top"><div><div class="eyebrow">AGREED SCOPE</div><h2 id="scopeModalTitle">Add a deliverable</h2></div><button class="close-button" value="cancel" aria-label="Close">×</button></div><label class="field-label" for="scopeTitle">Deliverable</label><input id="scopeTitle" name="title" required maxlength="100" placeholder="e.g. Contact form">
+      <label class="field-label" for="scopeDetails">Details / acceptance</label><textarea id="scopeDetails" name="details" rows="3" maxlength="300" placeholder="What is included? How will you know it is complete?"></textarea><input type="hidden" id="scopeIdInput"><div class="modal-actions"><button class="button button-quiet" value="cancel">Cancel</button><button class="button button-dark" value="default">Save item <span>→</span></button></div></form>
+  </dialog>
+
+  <dialog id="rateDialog" class="modal small-modal"><form method="dialog" id="rateForm"><div class="modal-top"><div><div class="eyebrow">PROJECT SETTINGS</div><h2>Hourly rate</h2></div><button class="close-button" value="cancel" aria-label="Close">×</button></div><label class="field-label" for="rateInput">Your rate in INR</label><input type="number" id="rateInput" min="0" step="50" required><p class="field-help">Used only to calculate an estimate for your own review.</p><div class="modal-actions"><button class="button button-quiet" value="cancel">Cancel</button><button class="button button-dark" value="default">Save rate</button></div></form></dialog>
+
+  <dialog id="detailDialog" class="modal detail-modal"><div id="detailContent"></div></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
