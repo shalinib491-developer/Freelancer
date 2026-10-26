@@ -107,6 +107,7 @@ function openDetail(id) {
 }
 
 document.addEventListener('click', event => {
+  const pocAnchor = event.target.closest('[data-poc-anchor]'); if (pocAnchor) { go('poc'); document.querySelector('#' + pocAnchor.dataset.pocAnchor)?.scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
   const nav = event.target.closest('[data-view]'); if (nav) { event.preventDefault(); go(nav.dataset.view); return; }
   const viewLink = event.target.closest('[data-view-link]'); if (viewLink) { go(viewLink.dataset.viewLink); return; }
   if (event.target.closest('[data-open-request]')) { openRequestDialog(); return; }
@@ -152,6 +153,6 @@ document.querySelector('#rateForm').addEventListener('submit', event => {
   event.preventDefault(); data.rate = Number(document.querySelector('#rateInput').value || 0); document.querySelector('#rateDialog').close(); save(); toast('Hourly rate updated.');
 });
 document.querySelector('#projectSwitcher').addEventListener('click', () => toast('This demo includes one sample project.'));
-window.addEventListener('hashchange', () => { const requested = location.hash.slice(1); if (['overview','scope','requests'].includes(requested)) go(requested); });
-const initialView = location.hash.slice(1); if (['overview','scope','requests'].includes(initialView)) go(initialView);
+window.addEventListener('hashchange', () => { const requested = location.hash.slice(1); if (['overview','scope','requests','poc'].includes(requested)) go(requested); });
+const initialView = location.hash.slice(1); if (['overview','scope','requests','poc'].includes(initialView)) go(initialView);
 render();
